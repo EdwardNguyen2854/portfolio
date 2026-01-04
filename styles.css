@@ -677,7 +677,7 @@ mjx-container[jax="SVG"][display="true"] {
   justify-content: center !important;
   width: 100% !important;
   margin: 3rem 0 !important;
-  font-size: 1.25em !important;
+  font-size: 1.15em !important;
 }
 
 mjx-container[jax="SVG"][display="true"]>svg {
