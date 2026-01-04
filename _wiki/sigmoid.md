@@ -17,11 +17,13 @@ description: Understanding the Sigmoid activation function and its properties.
 </figure>
 
 **Formula**
+
 $$
 \sigma(x) = \frac{1}{1 + e^{-x}}
 $$
 
 **Derivative (useful for backprop)**
+
 $$
 \sigma'(x) = \sigma(x) \bigl(1 - \sigma(x)\bigr)
 $$
@@ -45,11 +47,13 @@ $$
 **Sigmoid** là hàm kích hoạt đưa mọi giá trị thực về khoảng **$(0, 1)$**, hay được hiểu như xác suất.
 
 **Công thức**
+
 $$
 \sigma(x) = \frac{1}{1 + e^{-x}}
 $$
 
 **Đạo hàm (dùng trong lan truyền ngược)**
+
 $$
 \sigma'(x) = \sigma(x) \bigl(1 - \sigma(x)\bigr)
 $$

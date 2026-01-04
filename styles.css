@@ -669,14 +669,19 @@ textarea {
   font-style: italic;
 }
 
-/* MathJax Alignment (Refined v13) */
+/* MathJax Alignment (Refined v14) */
 mjx-container[jax="SVG"][display="true"] {
   display: flex !important;
-  justify-content: center !important;
+  flex-direction: column !important;
   align-items: center !important;
+  justify-content: center !important;
   width: 100% !important;
-  margin: 2.5rem 0 !important;
-  font-size: 1.2em !important;
+  margin: 3rem 0 !important;
+  font-size: 1.25em !important;
+}
+
+mjx-container[jax="SVG"][display="true"]>svg {
+  margin: 0 auto !important;
 }
 
 mjx-container {
