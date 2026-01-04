@@ -17,11 +17,13 @@ description: Understanding the Sigmoid activation function and its properties.
 </figure>
 
 **Formula**
+<br>
 $$
 \sigma(x) = \frac{1}{1 + e^{-x}}
 $$
 
 **Derivative (useful for backprop)**
+<br>
 $$
 \sigma'(x) = \sigma(x) \bigl(1 - \sigma(x)\bigr)
 $$
@@ -31,7 +33,7 @@ $$
 * Output in $(0, 1)$ → useful for **binary classification output layer** (with BCE loss)
 
 **Cons**
-* **Vanishing gradients** for large $|x|$ (outputs near 0 or 1)
+* **Vanishing gradients** for large |x| (outputs near 0 or 1)
 * Not zero-centered → can slow learning
 * Often avoided in hidden layers (ReLU-family is more common)
 
@@ -45,11 +47,13 @@ $$
 **Sigmoid** là hàm kích hoạt đưa mọi giá trị thực về khoảng **$(0, 1)$**, hay được hiểu như xác suất.
 
 **Công thức**
+<br>
 $$
 \sigma(x) = \frac{1}{1 + e^{-x}}
 $$
 
 **Đạo hàm (dùng trong lan truyền ngược)**
+<br>
 $$
 \sigma'(x) = \sigma(x) \bigl(1 - \sigma(x)\bigr)
 $$
@@ -59,7 +63,7 @@ $$
 * Đầu ra $(0, 1)$ → phù hợp cho **tầng output bài toán nhị phân** (kèm BCE)
 
 **Nhược điểm**
-* **Mất gradient** khi $|x|$ lớn (bão hòa gần 0 hoặc 1)
+* **Mất gradient** khi |x| lớn (bão hòa gần 0 hoặc 1)
 * Không “zero-centered” → có thể học chậm
 * Ít dùng ở hidden layer (thường dùng ReLU và biến thể)
 
