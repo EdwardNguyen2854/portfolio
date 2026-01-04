@@ -3,12 +3,35 @@ document.addEventListener('DOMContentLoaded', () => {
     setupBlogSearch();
     setupWikiSearch();
     setupNavHighlight();
+    setupMobileMenu();
 });
 
-// --- Navigation Highlight ---
-function setupNavHighlight() {
-    // Jekyll adds 'active' class via Liquid, but for on-page anchor links (if any) we could add logic.
-    // For now, reliance on Jekyll's templating is sufficient for page-level highlight.
+// --- Mobile Menu ---
+function setupMobileMenu() {
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav-links');
+
+    if (!toggle || !nav) return;
+
+    toggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+        const icon = toggle.querySelector('i');
+        if (nav.classList.contains('active')) {
+            icon.classList.replace('ph-list', 'ph-x');
+        } else {
+            icon.classList.replace('ph-x', 'ph-list');
+        }
+    });
+
+    // Close menu on link click
+    const links = nav.querySelectorAll('a');
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            nav.classList.remove('active');
+            const icon = toggle.querySelector('i');
+            icon.classList.replace('ph-x', 'ph-list');
+        });
+    });
 }
 
 // --- Projects Filtering ---
