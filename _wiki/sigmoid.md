@@ -1,12 +1,20 @@
 ---
-title: Sigmoid Activation Function
+title: Sigmoid
 category: Deep Learning
+tags: [Activation Function, Neural Networks, Math]
 description: Understanding the Sigmoid activation function and its properties.
 ---
 
-## Activation Function — Sigmoid (EN)
+## Sigmoid (EN)
 
 **Sigmoid** is an activation function that maps any real value to a range **$(0, 1)$**, often interpreted as a probability.
+
+<figure>
+  <img src="{{ '/assets/images/wiki/sigmoid/fig-1.png' | relative_url }}" alt="Sigmoid Activation Function">
+  <figcaption>
+    Sigmoid Activation Function Plot. Source: <a href="https://fritz.ai/exploring-activation-and-loss-functions-in-machine-learning/" target="_blank">Exploring Activation and Loss Functions in Machine Learning</a>
+  </figcaption>
+</figure>
 
 **Formula**
 $$
@@ -32,7 +40,7 @@ $$
 
 ---
 
-## Hàm kích hoạt — Sigmoid (VN)
+## Sigmoid (VN)
 
 **Sigmoid** là hàm kích hoạt đưa mọi giá trị thực về khoảng **$(0, 1)$**, hay được hiểu như xác suất.
 
