@@ -669,9 +669,11 @@ textarea {
   font-style: italic;
 }
 
-/* MathJax Spacing */
+/* MathJax Spacing & Alignment */
 mjx-container {
   margin: var(--space-8) 0 !important;
+  text-align: center !important;
+  display: block !important;
   overflow-x: auto !important;
   overflow-y: hidden !important;
 }
