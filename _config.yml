@@ -1,0 +1,34 @@
+title: Portfolio
+email: hello@example.com
+description: >-
+  Personal Portfolio and Blog
+baseurl: "/portfolio" # the subpath of your site, e.g. /blog
+url: "https://edwardnguyen2854.github.io" # the base hostname & protocol for your site
+
+collections:
+  wiki:
+    output: true
+    permalink: /wiki/:path/
+  projects:
+    output: true
+    permalink: /projects/:path/
+  writing:
+    output: true
+    permalink: /blog/:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: "wiki"
+    values:
+      layout: "wiki_entry"
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project_entry"
+  - scope:
+      path: ""
+      type: "writing"
+    values:
+      layout: "writing_entry"

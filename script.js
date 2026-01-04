@@ -1,0 +1,123 @@
+document.addEventListener('DOMContentLoaded', () => {
+    setupProjectFilters();
+    setupBlogSearch();
+    setupWikiSearch();
+    setupNavHighlight();
+});
+
+// --- Navigation Highlight ---
+function setupNavHighlight() {
+    // Jekyll adds 'active' class via Liquid, but for on-page anchor links (if any) we could add logic.
+    // For now, reliance on Jekyll's templating is sufficient for page-level highlight.
+}
+
+// --- Projects Filtering ---
+function setupProjectFilters() {
+    const searchInput = document.getElementById('project-search');
+    const filterButtons = document.querySelectorAll('.filter-tag');
+    const cards = document.querySelectorAll('.project-card');
+    const loadMoreBtn = document.getElementById('load-more-projects');
+
+    if (!searchInput && !filterButtons.length) return;
+
+    let activeTag = 'all';
+    let searchQuery = '';
+
+    // Search Input
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value.toLowerCase();
+            filterProjects();
+        });
+    }
+
+    // Tag Buttons
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all
+            filterButtons.forEach(b => b.classList.remove('active'));
+            // Add to clicked
+            btn.classList.add('active');
+            // Update state
+            activeTag = btn.dataset.filter;
+            filterProjects();
+        });
+    });
+
+    function filterProjects() {
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+            const title = card.dataset.title || '';
+            const tags = (card.dataset.tags || '').split(',');
+
+            const matchesSearch = title.includes(searchQuery);
+            const matchesTag = activeTag === 'all' || tags.includes(activeTag);
+
+            if (matchesSearch && matchesTag) {
+                card.style.display = 'block'; // Or 'flex' if grid requires it, but block usually fine in grid
+                visibleCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        // OPTIONAL: Handle "Load More" visibility if we were doing pagination. 
+        // With Jekyll static list, we usually show all or use JS libraries for pagination.
+        // For now, hiding load more if it exists
+        if (loadMoreBtn) loadMoreBtn.style.display = 'none';
+    }
+}
+
+// --- Blog Search ---
+function setupBlogSearch() {
+    const searchInput = document.getElementById('blog-search');
+    const items = document.querySelectorAll('.blog-item');
+
+    if (!searchInput) return;
+
+    searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase();
+
+        items.forEach(item => {
+            const title = item.dataset.title || '';
+            if (title.includes(query)) {
+                item.style.display = 'flex'; // blog-item is flex usually
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    });
+}
+
+// --- Wiki Search ---
+function setupWikiSearch() {
+    const searchInput = document.getElementById('wiki-search');
+    const groups = document.querySelectorAll('.wiki-category-group');
+
+    if (!searchInput) return;
+
+    searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase();
+
+        groups.forEach(group => {
+            const cards = group.querySelectorAll('.wiki-card');
+            let hasVisibleCard = false;
+
+            cards.forEach(card => {
+                const title = card.querySelector('.wiki-card-title').textContent.toLowerCase();
+                const desc = card.querySelector('.wiki-card-desc').textContent.toLowerCase();
+
+                if (title.includes(query) || desc.includes(query)) {
+                    card.style.display = 'block';
+                    hasVisibleCard = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Hide group if no cards match
+            group.style.display = hasVisibleCard ? 'block' : 'none';
+        });
+    });
+}

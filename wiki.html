@@ -1,0 +1,40 @@
+---
+layout: default
+title: Wiki
+url: /wiki.html
+---
+
+<section class="section" style="padding-top: calc(var(--header-height) + var(--space-8));">
+    <div class="container">
+        <div class="section-header">
+            <h1 class="section-title">Personal Wiki</h1>
+            <p class="section-subtitle">A collection of notes, snippets, and resources.</p>
+        </div>
+
+        <div class="controls-bar">
+            <div class="search-box">
+                <input type="text" id="wiki-search" class="search-input" placeholder="Search wiki...">
+            </div>
+        </div>
+
+        <div id="wiki-container" class="wiki-container">
+            {% assign categories = site.wiki | map: 'category' | uniq | sort %}
+
+            {% for category in categories %}
+            <div class="wiki-category-group">
+                <h3 class="wiki-category-title">{{ category }}</h3>
+                <div class="wiki-grid">
+                    {% for item in site.wiki %}
+                    {% if item.category == category %}
+                    <a href="{{ item.url | relative_url }}" class="wiki-card">
+                        <h4 class="wiki-card-title">{{ item.title }}</h4>
+                        <p class="wiki-card-desc">{{ item.description }}</p>
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

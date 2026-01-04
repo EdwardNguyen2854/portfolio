@@ -1,0 +1,52 @@
+[
+    {
+        "role": "Senior Mechanical Engineer",
+        "company": "Bosch Global Software Technologies Vietnam",
+        "period": "Jul 2025 - Present",
+        "description": "Full-time. Focused on Generative AI and Agentic AI applications in engineering.",
+        "skills": [
+            "Generative AI",
+            "Agentic AI"
+        ]
+    },
+    {
+        "role": "Mechanical Engineer",
+        "company": "Bosch Global Software Technologies Vietnam",
+        "period": "Mar 2022 - Jun 2025",
+        "description": "Full-time. Mechanical design and automation using Python.",
+        "skills": [
+            "PTC Creo",
+            "Python"
+        ]
+    },
+    {
+        "role": "Mechanical Design Intern",
+        "company": "Bosch Global Software Technologies Vietnam",
+        "period": "Sep 2021 - Feb 2022",
+        "description": "Internship. Gained experience in CAD design and automation scripting.",
+        "skills": [
+            "PTC Creo",
+            "VBA"
+        ]
+    },
+    {
+        "role": "Mechanical Engineering Intern",
+        "company": "Earable",
+        "period": "May 2021 - Jul 2021",
+        "description": "Internship. Worked on Standard Operating Procedures and design research.",
+        "skills": [
+            "SOP",
+            "Design Research"
+        ]
+    },
+    {
+        "role": "Research Intern",
+        "company": "National Key Laboratory of Digital Control and System Engineering (DCSELab)",
+        "period": "Jun 2020 - Aug 2020",
+        "description": "Internship at Ho Chi Minh City University of Technology. Focused on data processing and automation.",
+        "skills": [
+            "VBA",
+            "Microsoft Excel"
+        ]
+    }
+]

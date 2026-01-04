@@ -1,0 +1,129 @@
+---
+layout: default
+title: Home
+---
+
+<!-- Hero Section -->
+<!-- Hero Section -->
+<section id="hero">
+    <div class="container">
+        <h1 class="hero-title">Engineering Intelligence.</h1>
+        <p class="hero-subtitle">Senior Mechanical Engineer & AI Enthusiast. Bridging the gap between physical systems
+            and artificial intelligence.</p>
+        <div class="hero-actions">
+            <a href="{{ '/projects.html' | relative_url }}" class="btn btn-primary">View Projects</a>
+            <a href="#contact" class="btn btn-outline">Get in Touch</a>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">About Me</h2>
+        </div>
+        <div style="max-width: 800px; font-size: var(--text-lg);">
+            <p>Senior Mechanical Engineer & AI enthusiast, passionate about building practical solutions at the
+                intersection of engineering, automation, and AI. I enjoy stepping out of my comfort zone to try new
+                things, learn fast, and explore ways to turn ideas into real outcomes.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Experience Section -->
+<section id="experience" class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Experience</h2>
+        </div>
+        <div id="experience-list" class="timeline">
+            {% for job in site.data.experience %}
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <h3 class="timeline-role">{{ job.role }}</h3>
+                        <span class="timeline-period">{{ job.period }}</span>
+                    </div>
+                    <div class="timeline-company">{{ job.company }}</div>
+                    <p class="timeline-desc">{{ job.description }}</p>
+                    <div class="tags">
+                        {% for skill in job.skills %}
+                        <span class="tag">{{ skill }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Certifications Section -->
+<section id="certifications" class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Certifications</h2>
+        </div>
+        <div id="certifications-grid" class="cert-grid">
+            {% for cert in site.data.certifications %}
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <i class="ph ph-certificate"></i>
+                </div>
+                <div class="cert-content">
+                    <h3 class="cert-title">{{ cert.title }}</h3>
+                    <div class="cert-issuer">{{ cert.issuer }}</div>
+                    <div class="cert-date">{{ cert.date }}</div>
+                </div>
+                <a href="{{ cert.link }}" class="cert-link" target="_blank" aria-label="View Certification">
+                    <i class="ph ph-arrow-up-right"></i>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="section-subtitle">Interested in collaboration or just want to verify my receptive field
+                calculations?</p>
+        </div>
+        <div style="max-width: 600px;">
+            <p style="margin-bottom: var(--space-6); font-size: var(--text-lg); color: var(--color-text-muted);">
+                I am always open to discussing AI applications in engineering, automation challenges, or new
+                opportunities.
+            </p>
+            <div class="hero-actions">
+                <a href="mailto:{{ site.email }}" class="btn btn-primary">Send Email</a>
+                <a href="https://linkedin.com" target="_blank" class="btn btn-outline">LinkedIn</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Downloads Section -->
+<section id="downloads" class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Downloads</h2>
+            <p class="section-subtitle">Get my official documentation.</p>
+        </div>
+
+        <div class="downloads-grid">
+            <a href="{{ '/assets/cv.pdf' | relative_url }}" class="download-card" download>
+                <span style="font-weight: 600;">Download CV</span>
+                <span style="font-size: 0.8rem; color: #666;">PDF Format</span>
+            </a>
+            <a href="{{ '/assets/resume.pdf' | relative_url }}" class="download-card" download>
+                <span style="font-weight: 600;">Download Resume</span>
+                <span style="font-size: 0.8rem; color: #666;">PDF Format</span>
+            </a>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,17 @@
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="container nav-container">
+        <a href="{{ '/' | relative_url }}" class="logo">Portfolio.</a>
+        <ul class="nav-links">
+            <li><a href="{{ '/#about' | relative_url }}" class="nav-link">About</a></li>
+            <li><a href="{{ '/projects.html' | relative_url }}"
+                    class="nav-link {% if page.url contains 'projects' %}active{% endif %}">Projects</a></li>
+            <li><a href="{{ '/writing.html' | relative_url }}"
+                    class="nav-link {% if page.url contains 'writing' %}active{% endif %}">Writing</a></li>
+            <li><a href="{{ '/wiki.html' | relative_url }}"
+                    class="nav-link {% if page.url contains 'wiki' %}active{% endif %}">Wiki</a></li>
+            <li><a href="{{ '/#downloads' | relative_url }}" class="nav-link">Resume</a></li>
+            <li><a href="{{ '/#contact' | relative_url }}" class="nav-link">Contact</a></li>
+        </ul>
+    </div>
+</nav>

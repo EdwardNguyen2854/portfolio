@@ -1,0 +1,52 @@
+---
+layout: default
+---
+
+<section class="section" style="padding-top: calc(var(--header-height) + var(--space-8));">
+    <div class="container" style="max-width: 800px;">
+        <div class="section-header"
+            style="text-align: left; margin-bottom: var(--space-8); border-bottom: 1px solid var(--color-border); padding-bottom: var(--space-6);">
+            <div style="font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: var(--space-2);">
+                Project / {{ page.date | date: "%Y" }}</div>
+            <h1 class="section-title" style="margin-bottom: var(--space-4);">{{ page.title }}</h1>
+
+            <div class="tags" style="margin-bottom: var(--space-4);">
+                {% for tag in page.tags %}
+                <span class="tag">{{ tag }}</span>
+                {% endfor %}
+            </div>
+
+            <p class="section-subtitle" style="margin-top: var(--space-2);">{{ page.summary }}</p>
+
+            <div class="card-links" style="margin-top: var(--space-6); border-top: none; padding-top: 0;">
+                {% if page.links.github %}
+                <a href="{{ page.links.github }}" target="_blank" class="btn btn-primary"
+                    style="padding: var(--space-2) var(--space-4); font-size: var(--text-sm);">GitHub</a>
+                {% endif %}
+                {% if page.links.demo %}
+                <a href="{{ page.links.demo }}" target="_blank" class="btn btn-outline"
+                    style="padding: var(--space-2) var(--space-4); font-size: var(--text-sm);">Live Demo</a>
+                {% endif %}
+            </div>
+        </div>
+
+        <article class="project-body">
+            {% if page.highlights %}
+            <h3>Highlights</h3>
+            <ul>
+                {% for highlight in page.highlights %}
+                <li>{{ highlight }}</li>
+                {% endfor %}
+            </ul>
+            <hr style="margin: var(--space-8) 0; border: none; border-top: 1px solid var(--color-border);">
+            {% endif %}
+
+            {{ content }}
+        </article>
+
+        <footer
+            style="margin-top: var(--space-20); padding-top: var(--space-8); border-top: 1px solid var(--color-border); text-align: center;">
+            <a href="{{ '/projects.html' | relative_url }}" class="btn btn-outline">← Back to Projects</a>
+        </footer>
+    </div>
+</section>

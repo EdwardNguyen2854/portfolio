@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<section class="section" style="padding-top: calc(var(--header-height) + var(--space-8));">
+    <div class="container" style="max-width: 800px;">
+        <div class="section-header" style="text-align: left; margin-bottom: var(--space-8); border-bottom: 1px solid var(--color-border); padding-bottom: var(--space-6);">
+             <div style="font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: var(--space-2);">{{ page.category }}</div>
+             <h1 class="section-title" style="margin-bottom: 0;">{{ page.title }}</h1>
+             {% if page.description %}
+             <p class="section-subtitle" style="margin-top: var(--space-2);">{{ page.description }}</p>
+             {% endif %}
+        </div>
+        
+        <article class="wiki-body">
+            {{ content }}
+        </article>
+        
+        <footer style="margin-top: var(--space-20); padding-top: var(--space-8); border-top: 1px solid var(--color-border); text-align: center;">
+            <a href="{{ '/wiki.html' | relative_url }}" class="btn btn-outline">← Back to Wiki</a>
+        </footer>
+    </div>
+</section>

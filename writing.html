@@ -1,0 +1,37 @@
+---
+layout: default
+title: Writing
+---
+
+<section class="section" style="padding-top: calc(var(--header-height) + var(--space-8));">
+    <div class="container">
+        <div class="section-header">
+            <h1 class="section-title">Writing</h1>
+            <p class="section-subtitle">Thoughts on engineering, design, and technology.</p>
+        </div>
+
+        <div class="controls-bar">
+            <div class="search-box">
+                <input type="text" id="blog-search" class="search-input" placeholder="Search articles...">
+            </div>
+        </div>
+
+        <div id="blogs-list" class="blogs-list">
+            {% assign sorted_writing = site.writing | sort: 'date' | reverse %}
+            {% for post in sorted_writing %}
+            <article class="blog-item" data-title="{{ post.title | downcase }}">
+                <div class="blog-date">{{ post.date | date: "%B %d, %Y" }}</div>
+                <div class="blog-content">
+                    <a href="{{ post.url | relative_url }}" class="blog-title">{{ post.title }}</a>
+                    <p class="blog-excerpt">{{ post.excerpt }}</p>
+                    <div class="tags">
+                        {% for tag in post.tags %}
+                        <span class="tag">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>

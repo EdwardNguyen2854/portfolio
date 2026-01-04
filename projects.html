@@ -1,0 +1,53 @@
+---
+layout: default
+title: Projects
+---
+
+<section class="section" style="padding-top: calc(var(--header-height) + var(--space-8));">
+    <div class="container">
+        <div class="section-header">
+            <h1 class="section-title">Projects</h1>
+            <p class="section-subtitle">Selected works, side projects, and experiments.</p>
+        </div>
+
+        <div class="controls-bar">
+            <div class="search-box">
+                <input type="text" id="project-search" class="search-input" placeholder="Search projects...">
+            </div>
+            <div id="project-filters" class="filter-tags">
+                <button class="filter-tag active" data-filter="all">All</button>
+                <!-- Static tags could be generated here if we wanted, or kept dynamic via JS -->
+                {% assign all_tags = site.projects | map: 'tags' | join: ',' | split: ',' | uniq | sort %}
+                {% for tag in all_tags %}
+                <button class="filter-tag" data-filter="{{ tag }}">{{ tag }}</button>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div id="projects-grid" class="projects-grid">
+            {% assign sorted_projects = site.projects | sort: 'date' | reverse %}
+            {% for project in sorted_projects %}
+            <!-- Make the whole card clickable via the title stretched-link -->
+            <div class="card project-card" data-tags="{{ project.tags | join: ',' }}"
+                data-title="{{ project.title | downcase }}">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <a href="{{ project.url | relative_url }}" class="stretched-link"
+                            style="text-decoration: none; color: inherit;">
+                            {{ project.title }}
+                        </a>
+                    </h3>
+                    <div class="card-year">{{ project.date | date: "%Y" }}</div>
+                </div>
+                <p class="card-summary">{{ project.summary }}</p>
+                <div class="tags">
+                    {% for tag in project.tags %}
+                    <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                <!-- Links (Github/Demo) available inside detail page, but we can keep minimal indicators here if needed. -->
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
