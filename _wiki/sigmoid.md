@@ -33,7 +33,7 @@ $$
 * Output in $(0, 1)$ → useful for **binary classification output layer** (with BCE loss)
 
 **Cons**
-* **Vanishing gradients** for large $|x|$ (outputs near 0 or 1)
+* **Vanishing gradients** for large $\lvert x \rvert$ (outputs near 0 or 1)
 * Not zero-centered → can slow learning
 * Often avoided in hidden layers (ReLU-family is more common)
 
@@ -63,7 +63,7 @@ $$
 * Đầu ra $(0, 1)$ → phù hợp cho **tầng output bài toán nhị phân** (kèm BCE)
 
 **Nhược điểm**
-* **Mất gradient** khi $|x|$ lớn (bão hòa gần 0 hoặc 1)
+* **Mất gradient** khi $\lvert x \rvert$ lớn (bão hòa gần 0 hoặc 1)
 * Không “zero-centered” → có thể học chậm
 * Ít dùng ở hidden layer (thường dùng ReLU và biến thể)
 
