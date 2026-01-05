@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setupProjectFilters();
     setupBlogSearch();
     setupWikiSearch();
-    setupNavHighlight();
     setupMobileMenu();
 });
 
