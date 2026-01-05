@@ -10,27 +10,30 @@ document.addEventListener('DOMContentLoaded', () => {
 function setupMobileMenu() {
     const toggle = document.querySelector('.menu-toggle');
     const nav = document.querySelector('.nav-links');
+    const icon = toggle ? toggle.querySelector('i') : null;
 
-    if (!toggle || !nav) return;
+    if (!toggle || !nav || !icon) return;
 
-    toggle.addEventListener('click', () => {
+    toggle.addEventListener('click', (e) => {
+        e.preventDefault();
         nav.classList.toggle('active');
-        const icon = toggle.querySelector('i');
+
         if (nav.classList.contains('active')) {
-            icon.classList.replace('ph-list', 'ph-x');
+            icon.classList.remove('ph-list');
+            icon.classList.add('ph-x');
         } else {
-            icon.classList.replace('ph-x', 'ph-list');
+            icon.classList.remove('ph-x');
+            icon.classList.add('ph-list');
         }
     });
 
     // Close menu on link click
-    const links = nav.querySelectorAll('a');
-    links.forEach(link => {
-        link.addEventListener('click', () => {
+    nav.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
             nav.classList.remove('active');
-            const icon = toggle.querySelector('i');
-            icon.classList.replace('ph-x', 'ph-list');
-        });
+            icon.classList.remove('ph-x');
+            icon.classList.add('ph-list');
+        }
     });
 }
 
